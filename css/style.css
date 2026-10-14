@@ -1,0 +1,146 @@
+/* Dr. Asif Mansoori Dental Clinic — Plus Jakarta Sans & Glassmorphism */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root { color-scheme: light; }
+[data-theme="dark"] { color-scheme: dark; }
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f4fbf7;
+    color: #0f172a;
+    transition: background-color .4s ease, color .4s ease;
+}
+
+.bg-grid-pattern {
+    background-size: 32px 32px;
+    background-image:
+        linear-gradient(to right, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 25px 50px -12px rgba(5, 150, 105, 0.08);
+    transition: background-color .4s ease, border-color .4s ease, box-shadow .4s ease, transform .3s ease;
+}
+
+.glass-nav {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background-color .4s ease;
+}
+
+/* ---------- Dark theme overrides ---------- */
+[data-theme="dark"] body { background-color: #0b1220; color: #e2e8f0; }
+[data-theme="dark"] .bg-grid-pattern {
+    background-image:
+        linear-gradient(to right, rgba(16, 185, 129, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(16, 185, 129, 0.07) 1px, transparent 1px);
+}
+[data-theme="dark"] .glass-card { background: rgba(15, 23, 42, 0.92); border-color: rgba(51, 65, 85, 0.8); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+[data-theme="dark"] .glass-nav { background: rgba(11, 18, 32, 0.88); }
+[data-theme="dark"] .bg-white, [data-theme="dark"] .bg-white\/95, [data-theme="dark"] .bg-white\/80 { background-color: #0f172a !important; }
+[data-theme="dark"] .bg-emerald-50, [data-theme="dark"] .bg-emerald-50\/70 { background-color: rgba(16, 185, 129, 0.13) !important; }
+[data-theme="dark"] .bg-emerald-100 { background-color: rgba(16, 185, 129, 0.18) !important; }
+[data-theme="dark"] .bg-slate-100 { background-color: #1e293b !important; }
+[data-theme="dark"] .text-slate-900 { color: #f1f5f9 !important; }
+[data-theme="dark"] .text-slate-800 { color: #e2e8f0 !important; }
+[data-theme="dark"] .text-slate-700 { color: #cbd5e1 !important; }
+[data-theme="dark"] .text-slate-600 { color: #94a3b8 !important; }
+[data-theme="dark"] .text-slate-500 { color: #94a3b8 !important; }
+[data-theme="dark"] .text-slate-400 { color: #64748b !important; }
+[data-theme="dark"] .border-slate-100 { border-color: #1e293b !important; }
+[data-theme="dark"] .border-slate-200 { border-color: #334155 !important; }
+[data-theme="dark"] .border-emerald-100 { border-color: rgba(16, 185, 129, 0.25) !important; }
+[data-theme="dark"] input, [data-theme="dark"] select, [data-theme="dark"] textarea { background-color: #0f172a !important; color: #e2e8f0 !important; border-color: #334155 !important; }
+[data-theme="dark"] input::placeholder, [data-theme="dark"] textarea::placeholder { color: #64748b; }
+[data-theme="dark"] .bg-white\/80 { background-color: rgba(15, 23, 42, 0.9) !important; }
+
+/* ---------- Theme toggle ---------- */
+.theme-toggle {
+    display: inline-flex; align-items: center; gap: .45rem;
+    border: 1px solid #d1fae5; background: #ecfdf5; color: #065f46;
+    padding: .5rem .9rem; border-radius: 999px; font-size: .8rem; font-weight: 700;
+    cursor: pointer; transition: all .3s ease; white-space: nowrap;
+}
+.theme-toggle:hover { background: #d1fae5; transform: translateY(-1px); }
+.theme-toggle .toggle-thumb { font-size: .8rem; }
+[data-theme="dark"] .theme-toggle { border-color: #334155; background: #1e293b; color: #a7f3d0; }
+.theme-toggle.icon-only { padding: .55rem .65rem; }
+.theme-toggle.icon-only .toggle-label { display: none; }
+
+/* ---------- Animations ---------- */
+html.js .anim-reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+html.js .anim-reveal.visible { opacity: 1; transform: none; }
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.float-card { animation: floaty 5s ease-in-out infinite; }
+.shine-text {
+    background: linear-gradient(110deg, #059669 30%, #34d399 45%, #059669 60%);
+    background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shine 3.5s linear infinite;
+}
+@keyframes shine { to { background-position: 200% center; } }
+.lift { transition: transform .3s ease, box-shadow .3s ease; }
+.lift:hover { transform: translateY(-6px); box-shadow: 0 20px 35px -12px rgba(5, 150, 105, 0.25); }
+.service-card .service-icon { transition: transform .3s ease, background-color .3s ease; }
+.service-card:hover .service-icon { transform: scale(1.12) rotate(-4deg); background-color: #a7f3d0; }
+@keyframes waPulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); } 70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+.wa-float { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 60; width: 56px; height: 56px; border-radius: 999px;
+    background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45); animation: waPulse 2.2s infinite; transition: transform .2s ease; }
+.wa-float:hover { transform: scale(1.08); }
+
+/* ---------- Before / After Slider ---------- */
+.img-comparison-container {
+    position: relative; width: 100%; max-width: 900px; margin: 0 auto;
+    aspect-ratio: 16 / 9; overflow: hidden; border-radius: 1.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+    cursor: ew-resize; touch-action: none; outline: none;
+}
+.img-comparison-container:focus-visible { box-shadow: 0 0 0 3px #10b981, 0 20px 25px -5px rgba(0,0,0,.15); }
+.img-comparison-container .comp-base {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.img-comparison-after {
+    position: absolute; top: 0; bottom: 0; left: 0; width: 50%; height: 100%; overflow: hidden;
+}
+.img-comparison-after img {
+    position: absolute; top: 0; left: 0; height: 100%; object-fit: cover; max-width: none; display: block;
+}
+.img-comparison-slider {
+    position: absolute; top: 0; bottom: 0; left: 50%; width: 4px;
+    background: #10b981; z-index: 10; cursor: ew-resize; transform: translateX(-50%);
+}
+.img-comparison-slider::before {
+    content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 44px; height: 44px; background: #10b981; border: 3px solid #ffffff; border-radius: 50%;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);
+}
+.img-comparison-slider::after {
+    content: '\25C4  \25BA'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    color: #ffffff; font-size: 10px; font-weight: bold; z-index: 11; white-space: nowrap;
+}
+.comp-tag {
+    position: absolute; top: 12px; z-index: 12; font-size: 11px; font-weight: 800; letter-spacing: .08em;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 999px; pointer-events: none;
+    background: rgba(0,0,0,0.55); color: #fff; backdrop-filter: blur(4px);
+}
+.tag-before { left: 12px; }
+.tag-after { right: 12px; background: rgba(5, 150, 105, 0.85); }
+
+/* ---------- Gallery filter ---------- */
+.filter-btn { transition: all .25s ease; }
+.filter-btn.active { background-color: #059669 !important; color: #fff !important; border-color: #059669 !important; }
+
+/* ---------- Map ---------- */
+.mapbox { height: 18rem; overflow: hidden; border-radius: 1.5rem; }
+.mapbox iframe { width: 100%; height: 100%; border: 0; }
+
+/* ---------- Video (locked, play-once) ---------- */
+.video-locked { pointer-events: none !important; }
+video.video-locked::-webkit-media-controls { display: none !important; }
+video::-webkit-media-controls { display: none !important; }
